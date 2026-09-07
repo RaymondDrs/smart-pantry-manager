@@ -1,0 +1,18 @@
+# Build outputs
+*.apk
+*.aab
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE files
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Secrets / local config
+google-services.json
