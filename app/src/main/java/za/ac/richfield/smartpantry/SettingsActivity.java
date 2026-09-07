@@ -3,6 +3,7 @@ package za.ac.richfield.smartpantry;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,7 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
         setupNav();
     }
 
-    private void updateExpirySummary(MaterialSwitch btn, boolean checked) {
+    private void updateExpirySummary(CompoundButton btn, boolean checked) {
         btn.setText(checked ? R.string.settings_expiry_summary_on
                 : R.string.settings_expiry_summary_off);
     }
