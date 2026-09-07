@@ -66,6 +66,8 @@ public final class IngredientNormalizer {
         SYNONYMS.put("fusilli", "pasta");
         SYNONYMS.put("noodle", "pasta");
         SYNONYMS.put("noodles", "pasta");
+        SYNONYMS.put("rolled oat", "oat");     // recipes say "rolled oats", users type "oats"
+        SYNONYMS.put("porridge oat", "oat");
     }
 
     private IngredientNormalizer() { /* static utility */ }

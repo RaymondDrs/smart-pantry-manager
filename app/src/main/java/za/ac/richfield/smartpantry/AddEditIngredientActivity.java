@@ -71,6 +71,8 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         editId = getIntent().getLongExtra(EXTRA_ID, -1L);
         if (editId > 0) {
             setTitle(R.string.edit_ingredient);
+            TextView formTitle = findViewById(R.id.tvFormTitle);
+            formTitle.setText(R.string.edit_ingredient);
             PantryItem item = db.getPantryItem(editId);
             if (item == null) {         // stale id (row deleted elsewhere)
                 Toast.makeText(this, R.string.err_item_gone, Toast.LENGTH_SHORT).show();

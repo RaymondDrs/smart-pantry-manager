@@ -143,14 +143,26 @@ public class RecipeMatcher {
     /** Tiny tolerance so 0.1+0.2 style float noise never fails a match. */
     private static final double EPSILON = 1e-9;
 
-    /** Formats a requirement for display, e.g. "200 g flour". */
+    /** Formats a requirement for display, e.g. "200 g flour" or "3 eggs". */
     public static String describe(Recipe.Requirement req) {
-        return trimQty(req.quantity) + " " + Unit.labelOf(req.unit) + " " + req.originalName;
+        String unitLabel = Unit.labelOf(req.unit);
+        String name = req.originalName;
+        // Count units sometimes name the ingredient itself: "3 egg eggs"
+        // reads badly, so when the unit label IS the ingredient (egg, clove,
+        // slice, ...) the unit is dropped and the display becomes "3 eggs".
+        if (unitLabel != null && !unitLabel.isEmpty()
+                && IngredientNormalizer.normalize(name)
+                        .equals(IngredientNormalizer.normalize(unitLabel))) {
+            return trimQty(req.quantity) + " " + name;
+        }
+        return trimQty(req.quantity) + " " + unitLabel + " " + name;
     }
 
     /** Formats a quantity without trailing zeros: 2.0 -> "2", 0.5 -> "0.5". */
     public static String trimQty(double d) {
         if (d == Math.floor(d)) return String.valueOf((long) d);
-        return String.format(Locale.getDefault(), "%.2f", d);
+        String s = String.format(Locale.US, "%.2f", d);
+        if (s.endsWith("0")) s = s.substring(0, s.length() - 1);  // 0.50 -> 0.5
+        return s;
     }
 }

@@ -53,6 +53,12 @@ public final class Unit {
             this.code = code; this.label = label; this.family = family;
             this.toBaseFactor = toBaseFactor;
         }
+
+        /** Shown by the spinner's ArrayAdapter (which calls toString()). */
+        @Override
+        public String toString() {
+            return label;
+        }
     }
 
     private static final Map<String, UnitDef> UNITS = new HashMap<>();
