@@ -143,19 +143,39 @@ public class RecipeMatcher {
     /** Tiny tolerance so 0.1+0.2 style float noise never fails a match. */
     private static final double EPSILON = 1e-9;
 
-    /** Formats a requirement for display, e.g. "200 g flour" or "3 eggs". */
+    /** Formats a requirement for display, e.g. "200 g flour", "3 eggs",
+     *  "2 slices bread" or "1 tomato" - as natural as a recipe card. */
     public static String describe(Recipe.Requirement req) {
         String unitLabel = Unit.labelOf(req.unit);
         String name = req.originalName;
+        String nameKey = IngredientNormalizer.normalize(name);
+
         // Count units sometimes name the ingredient itself: "3 egg eggs"
         // reads badly, so when the unit label IS the ingredient (egg, clove,
         // slice, ...) the unit is dropped and the display becomes "3 eggs".
         if (unitLabel != null && !unitLabel.isEmpty()
-                && IngredientNormalizer.normalize(name)
-                        .equals(IngredientNormalizer.normalize(unitLabel))) {
+                && nameKey.equals(IngredientNormalizer.normalize(unitLabel))) {
             return trimQty(req.quantity) + " " + name;
         }
+        // A generic "piece" adds nothing the name does not: "1 tomato" and
+        // "0.5 cucumber" beat "1 pc tomato" and "0.5 pc cucumber".
+        if (Unit.PIECE.equals(req.unit)) {
+            return trimQty(req.quantity) + " " + name;
+        }
+        // Pluralise other count units when more than one is needed:
+        // "2 slices bread", "2 cloves garlic", "2 cans tinned tuna".
+        if (req.quantity > 1.5 && Unit.byCode(req.unit).family == Unit.Family.COUNT) {
+            return trimQty(req.quantity) + " " + pluralOf(unitLabel) + " " + name;
+        }
         return trimQty(req.quantity) + " " + unitLabel + " " + name;
+    }
+
+    /** Simple plural for count-unit labels: slice -> slices, bunch -> bunches. */
+    private static String pluralOf(String label) {
+        if (label == null || label.isEmpty()) return label;
+        if (label.endsWith("ch") || label.endsWith("sh") || label.endsWith("s")
+                || label.endsWith("x")) return label + "es";
+        return label + "s";
     }
 
     /** Formats a quantity without trailing zeros: 2.0 -> "2", 0.5 -> "0.5". */
