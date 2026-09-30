@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Pantry Manager</string>
+
+    <!-- Pantry screen -->
+    <string name="pantry_title">My Pantry</string>
+    <string name="pantry_empty">Your pantry is empty.\nTap + to add your first ingredient.</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="edit_ingredient">Edit ingredient</string>
+    <string name="hint_name">Ingredient name (e.g. tomato)</string>
+    <string name="hint_quantity">Quantity (e.g. 2.5)</string>
+    <string name="label_unit">Unit</string>
+    <string name="label_expiry">Expiry date (optional)</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_pick_date">Pick date</string>
+    <string name="err_name_required">Please enter an ingredient name.</string>
+    <string name="err_name_duplicate">That ingredient is already in your pantry.</string>
+    <string name="err_quantity_required">Please enter a quantity.</string>
+    <string name="err_quantity_positive">Quantity must be greater than zero.</string>
+    <string name="err_quantity_invalid">Please enter a valid number (e.g. 2 or 2.5).</string>
+    <string name="saved">Ingredient saved</string>
+    <string name="deleted">Ingredient deleted</string>
+    <string name="confirm_delete_title">Delete ingredient?</string>
+    <string name="confirm_delete_msg">This will remove "%1$s" from your pantry.</string>
+    <string name="nav_pantry">Pantry</string>
+    <string name="nav_suggested">Suggested</string>
+    <string name="nav_settings">Settings</string>
+    <string name="expiring_badge">expiring soon</string>
+    <string name="item_added">Ingredient added</string>
+    <string name="item_updated">Ingredient updated</string>
+
+    <!-- Suggested recipes screen -->
+    <string name="suggested_title">Suggested Recipes</string>
+    <string name="suggested_empty_title">No recipes match your pantry yet</string>
+    <string name="suggested_empty_msg">Add more ingredients and check back — the list updates instantly.\nStrict matching: a recipe appears here only if you have every ingredient in the needed quantity.</string>
+    <string name="almost_there_section">Almost there — missing 1 ingredient</string>
+    <string name="missing_count_badge">%1$d missing</string>
+    <string name="tap_for_details">Tap a recipe to see full details</string>
+    <string name="suggested_count">You can make %1$d of %2$d recipes right now</string>
+
+    <!-- Recipe detail screen -->
+    <string name="recipe_ingredients">Ingredients</string>
+    <string name="recipe_steps">Method</string>
+    <string name="have">Have</string>
+    <string name="missing">Missing</string>
+    <string name="you_have_all">You have everything you need for this recipe</string>
+    <string name="you_are_missing">Missing %1$d ingredient(s)</string>
+    <string banner="0" name="placeholder_unused">placeholder</string>
+
+    <!-- Settings screen -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_expiry_header">Expiring-soon alerts</string>
+    <string name="settings_expiry_summary_on">Show an "expiring soon" badge on pantry items within 3 days of expiry</string>
+    <string name="settings_expiry_summary_off">Expiring-soon badges are hidden</string>
+    <string name="settings_units_header">Measurement units</string>
+   <string name="settings_units_summary">Prefer millilitres when both ml and grams are equivalent for a liquid</string>
+    <string name="settings_other_header">Other</string>
+    <string name="settings_about_summary">Smart Pantry Manager reduces food waste by suggesting recipes from leftovers. Made for Mobile App Development 700.</string>
+    <string name="about_app">About this app</string>
+
+    <!-- Dialogs -->
+    <string name="ok">OK</string>
+    <string name="yes">Yes, delete</string>
+    <string name="no">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="cd_fab_add">Add a new pantry item</string>
+    <string name="cd_item_icon">Ingredient icon</string>
+    <string name="cd_expiry_alert">Expires soon</string>
+    <string name="cd_back">Navigate up</string>
+    <string name="cd_recipe_image">Recipe image</string>
+    <string name="not_enough_qty">only %1$s in pantry</string>
+    <string name="unit_piece">piece(s)</string>
+    <string name="unit_gram">g</string>
+    <string name="unit_ml">ml</string>
+    <string name="title_pantry">My Pantry</string>
+    <string name="qty_unit_fmt">%1$s %2$s</string>
+    <string name="expires_fmt">Expires %1$s</string>
+    <string name="missing_line_fmt">Missing: %1$s</string>
+    <string name="not_enough_fmt">Not enough: %1$s (have %2$s)</string>
+    <string name="recipe_meta_fmt">%1$s · %2$d ingredients</string>
+    <string name="settings_almost_summary">Show the "Almost there — missing 1 ingredient" section on the Suggested screen</string>
+    <string name="err_item_gone">That item no longer exists.</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".SmartPantryApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartPantry">
+
+        <!-- Pantry list: home screen. Hosts the bottom navigation bar. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Add / Edit an ingredient (one screen for both, chosen via Intent extras). -->
+        <activity android:name=".AddEditIngredientActivity" />
+
+        <!-- Strict-matching engine results. -->
+        <activity android:name=".SuggestedRecipesActivity" />
+
+        <!-- Full recipe details with per-ingredient have/missing flags. -->
+        <activity
+            android:name=".RecipeDetailActivity"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Settings / preferences (expiring-soon alerts, units). -->
+        <activity android:name=".SettingsActivity" />
+
+    </application>
+
+</manifest>

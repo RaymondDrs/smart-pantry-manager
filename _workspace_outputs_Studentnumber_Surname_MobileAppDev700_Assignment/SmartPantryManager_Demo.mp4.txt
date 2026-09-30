@@ -1,0 +1,5 @@
+This file is a placeholder.
+Record your 5-7 minute narrated demo following
+Report/Video_Demonstration_Script.md, export as MP4,
+and save it over SmartPantryManager_Demo.mp4
+before submitting the final ZIP.
